@@ -12,21 +12,23 @@ $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$dengue = new Dengue($db);
  
 // get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
+
+$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
+$long = isset($_GET["long"]) ? $_GET["long"] : "";
  
 // query products
-$stmt = $product->search($keywords);
+$stmt = $dengue->search($lat, $long);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
 if($num>0){
  
     // products array
-    $Dengue_arr=array();
-    $Dengue_arr["records"]=array();
+    $dengue_arr=array();
+    $dengue_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -45,10 +47,10 @@ if($num>0){
             "hitrate" => $hitrate
         );
  
-        array_push($Dengue_arr["records"], $dengue_item);
+        array_push($dengue_arr["records"], $dengue_item);
     }
  
-    echo json_encode($Dengue_arr);
+    echo json_encode($dengue_arr);
 }
  
 else{

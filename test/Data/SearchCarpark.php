@@ -12,13 +12,15 @@ $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Carpark($db);
+$carpark = new Carpark($db);
  
 // get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
+
+$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
+$long = isset($_GET["long"]) ? $_GET["long"] : "";
  
 // query products
-$stmt = $product->search($keywords);
+$stmt = $carpark->search($lat, $long);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

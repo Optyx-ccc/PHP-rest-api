@@ -12,7 +12,7 @@ $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Carpark($db);
+$carpark = new Carpark($db);
  
 // get keywords
  

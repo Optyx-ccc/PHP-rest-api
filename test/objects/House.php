@@ -8,6 +8,7 @@ class House{
     // object properties
 	public $name;
     public $region;
+    public $address;
 	public $latitude;
 	public $longitude;
     public $type;
@@ -32,7 +33,7 @@ class House{
     return $stmt;
 
 	}
-	function search($lat, $lon, $rad){
+	function search($lat, $lon){
 	//Done
 	//calculate the area
 	//return all cafe data in area
@@ -40,33 +41,13 @@ class House{
     $R = 6371;  // earth's mean radius, km
 	
     // first-cut bounding box (in degrees)
-    $maxLat = $lat + rad2deg($rad/$R);
-    $minLat = $lat - rad2deg($rad/$R);
-    $maxLon = $lon + rad2deg(asin($rad/$R) / cos(deg2rad($lat)));
-    $minLon = $lon - rad2deg(asin($rad/$R) / cos(deg2rad($lat)));
+ 
 	
-	
-	if(($maxLat > $minLat) && ($maxLon > $minLon)){
 			$query = "SELECT * FROM "   . $this->table_name . 
-			" Where latitude Between " . $minLat . " And " . $maxLat . "
-			And longitude Between " . $minLon . " And " . $maxLon . "";
-		  }
-		  else if(($minLat > $maxLat) && ($maxLon > $minLon)){
-			$query = "SELECT * FROM "   . $this->table_name . 
-			" Where latitude Between " . $maxLat . " And " . $minLat . "
-			And longitude Between " . $minLon . " And " . $maxLon . "";
-	}
-		  else if(($maxLat > $minLat) && ($minLon > $maxLon)){
-			$query = "SELECT * FROM "   . $this->table_name . 
-			" Where latitude Between " . $minLat . " And " . $maxLat . "
-			And longitude Between " . $maxLon . " And " . $minLon . "";
-	}else{
-			$query = "SELECT * FROM "   . $this->table_name . 
-			" Where latitude Between " . $maxLat . " And " . $minLat . "
-			And longitude Between " . $maxLon . " And " . $minLon . "";
+			" Where latitude=" . $lat . "
+			And longitude=" . $lon ;
 
-			
-	}
+	
 		
     // select all query
   

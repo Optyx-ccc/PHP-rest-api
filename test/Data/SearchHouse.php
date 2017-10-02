@@ -5,20 +5,21 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/product.php';
+include_once '../objects/House.php';
  
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$House = new House($db);
  
 // get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
+$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
+$long = isset($_GET["long"]) ? $_GET["long"] : "";
  
 // query products
-$stmt = $product->search($keywords);
+$stmt = $product->search($lat, $long);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
@@ -38,12 +39,13 @@ if($num>0){
         extract($row);
  
         $product_item=array(
-            "id" => $id,
             "name" => $name,
-            "description" => html_entity_decode($description),
+            "region" => $region,
+            "address" => $address,
+            "latitude" => $latitude,
+            "longitude" => $longitude,
+            "type" => $type,
             "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
         );
  
         array_push($products_arr["records"], $product_item);
