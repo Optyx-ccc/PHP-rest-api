@@ -18,9 +18,10 @@ $dengue = new Dengue($db);
 
 $lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
 $long = isset($_GET["long"]) ? $_GET["long"] : "";
+ $rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
  
 // query products
-$stmt = $dengue->search($lat, $long);
+$stmt = $dengue->search($lat, $long,$rad);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

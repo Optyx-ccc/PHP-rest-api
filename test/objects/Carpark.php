@@ -6,7 +6,7 @@ class Carpark{
     private $table_name = "Carpark";
  
     // object properties
-	public name;
+	public $name;
     public $region;
 	public $address;
 	public $latitude;

@@ -17,9 +17,10 @@ $House = new House($db);
 // get keywords
 $lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
 $long = isset($_GET["long"]) ? $_GET["long"] : "";
+ $rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
  
 // query products
-$stmt = $product->search($lat, $long);
+$stmt = $product->search($lat, $long, $rad);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

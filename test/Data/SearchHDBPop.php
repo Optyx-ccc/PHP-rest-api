@@ -7,24 +7,24 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../config/database.php';
 include_once '../objects/HDBPopulation.php';
  
-// instantiate database and product object
+// instantiate database and HDBPopulation object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$HDBPopulation = new HDBPopulation($db);
  
 // get keywords
 $region=isset($_GET["region"]) ? $_GET["region"] : "";
  
-// query products
-$stmt = $HDBPopulation->search($region);
+// query HDBPopulations
+$stmt = $HDBPopulation->displayHDB($region);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
 if($num>0){
  
-    // products array
+    // HDBPopulations array
     $HDB_arr=array();
     $HDB_arr["HDBPopulation"]=array();
  
@@ -47,7 +47,7 @@ if($num>0){
             "fiveroom" => $fiveroom
         );
  
-        array_push($HDB_arr["HDBPopulation"], $product_item);
+        array_push($HDB_arr["HDBPopulation"], $HDBPopulation_item);
     }
  
     echo json_encode($HDB_arr);
@@ -55,7 +55,7 @@ if($num>0){
  
 else{
     echo json_encode(
-        array("message" => "No products found.")
+        array("message" => "No HDBPopulations found.")
     );
 }
 ?>

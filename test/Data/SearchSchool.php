@@ -38,12 +38,13 @@ if($num>0){
         extract($row);
  
         $product_item=array(
-            "id" => $id,
             "name" => $name,
-            "description" => html_entity_decode($description),
-            "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
+            "region" => $region,
+            "address" => $address,
+            "latitude" => $latitude,
+            "longitude" => $longitude,
+            "type" => $type,
+            "price" => $price
         );
  
         array_push($products_arr["records"], $product_item);

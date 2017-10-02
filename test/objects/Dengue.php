@@ -1,5 +1,5 @@
 <?php
-class DengueCluster{
+class Dengue{
  
     // database connection and table name
     private $conn;
@@ -17,7 +17,7 @@ class DengueCluster{
     }
 	
 	
-		function read(){
+	function read(){
  
     // select all query
     $query = "SELECT * FROM " . $this->table_name ;
