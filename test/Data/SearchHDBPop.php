@@ -42,7 +42,6 @@ if($num>0){
             "region" => $region,
             "total" => $total,
             "studio" => $studio,
-            "tworoom" => $tworoom,
             "threeroom" => $threeroom,
             "fourroom" => $fourroom,
             "fiveroom" => $fiveroom
