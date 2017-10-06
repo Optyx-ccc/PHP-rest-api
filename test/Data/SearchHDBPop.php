@@ -16,9 +16,10 @@ $HDBPopulation = new HDBPopulation($db);
  
 // get keywords
 $region=isset($_GET["region"]) ? $_GET["region"] : "";
+$year=isset($_GET["year"]) ? $_GET["year"] : "";
  
 // query HDBPopulations
-$stmt = $HDBPopulation->displayHDB($region);
+$stmt = $HDBPopulation->displayHDB($region, $year);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
