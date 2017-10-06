@@ -10,7 +10,6 @@ class HDBPopulation{
     public $region;
 	public $total;
 	public $studio;
-	public $tworoom;
 	public $threeroom;
 	public $fourroom;
 	public $fiveroom;
@@ -24,8 +23,8 @@ class HDBPopulation{
 	function displayHDB($region, $year){
  
     // select all query
-    $query = "SELECT * FROM " . $this->table_name . "where region='" . $region . "' AND year =  " . $year ;
- 
+    $query = "SELECT * FROM " . $this->table_name . " where region=upper('" . $region . "') AND year =  " . $year ;
+	echo $query;
     // prepare query statement
     $stmt = $this->conn->prepare($query);
  
