@@ -47,7 +47,7 @@ if($num>0){
             "fiveroom" => $fiveroom
         );
  
-        array_push($HDB_arr["HDBPopulation"], $HDBPopulation_item);
+        array_push($HDB_arr["HDBPopulation"], $HDB_item);
     }
  
     echo json_encode($HDB_arr);

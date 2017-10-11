@@ -24,7 +24,7 @@ class HDBPopulation{
  
     // select all query
     $query = "SELECT * FROM " . $this->table_name . " where region=upper('" . $region . "') AND year =" . $year ;
-	echo $query;
+
     // prepare query statement
     $stmt = $this->conn->prepare($query);
  

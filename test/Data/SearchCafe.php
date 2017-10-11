@@ -41,11 +41,12 @@ if($num>0){
         extract($row);
  
         $cafe_item=array(
-            "name" => $name,
-            "region" => $region,
+             "name" => $name,
             "address" => $address,
             "latitude" => $latitude,
-            "longitude" => $longitude
+            "longitude" => $longitude,
+            "type" => $type,
+            "price" => $price
 			);
  
         array_push($cafe_arr["records"], $cafe_item);

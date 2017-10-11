@@ -39,9 +39,10 @@ if($num>0){
         $cafe_item=array(
             "name" => $name,
             "region" => $region,
-            "address" => $address,
             "latitude" => $latitude,
-            "longitude" => $longitude
+            "longitude" => $longitude,
+            "type" => $type,
+            "price" => $price
 			);
  
         array_push($cafe_arr["cafe"], $cafe_item);

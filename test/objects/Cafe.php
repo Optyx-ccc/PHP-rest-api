@@ -11,6 +11,9 @@ class Cafe{
 	public $address;
 	public $latitude;
 	public $longitude;
+	public $type;
+	public $price;
+	
 	
     // constructor with $db as database connection
     public function __construct($db){
