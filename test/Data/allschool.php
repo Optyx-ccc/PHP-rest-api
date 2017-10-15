@@ -40,10 +40,13 @@ if($num>0){
             "name" => $name,
             "region" => $region,
             "address" => $address,
+            "postalcode" => $postal,
             "latitude" => $latitude,
             "longitude" => $longitude,
-            "type" => $type,
-            "price" => $price
+            "longitude" => $longitude,
+            "url_address" => $url_address,
+            "telephone" => $telephone,
+            "type" => $type
         );
  
         array_push($School_arr["School"], $School_item);

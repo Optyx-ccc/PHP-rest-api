@@ -38,7 +38,7 @@ if($num>0){
  
         $cafe_item=array(
             "name" => $name,
-            "region" => $region,
+            "address" => $address,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "type" => $type,
