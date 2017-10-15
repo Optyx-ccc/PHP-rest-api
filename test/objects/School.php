@@ -9,7 +9,7 @@ class School{
 	public $name;
     public $region;
 	public $address;
-	public $postal;
+	public $postalcode;
 	public $latitude;
 	public $longitude;
 	public $url_address;

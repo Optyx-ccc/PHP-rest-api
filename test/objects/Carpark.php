@@ -8,11 +8,12 @@ class Carpark{
     // object properties
 	public $name;
     public $region;
-	public $address;
 	public $latitude;
 	public $longitude;
-    public $ratetype;
-    public $rate;
+    public $weekday_rate1;
+    public $weekday_rate2;
+    public $saturday_rate;
+    public $sun_pub_rate;
  
     // constructor with $db as database connection
     public function __construct($db){

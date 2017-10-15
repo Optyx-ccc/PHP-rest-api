@@ -43,7 +43,7 @@ if($num>0){
             "name" => $name,
             "region" => $region,
             "address" => $address,
-            "postalcode" => $postal,
+            "postalcode" => $postalcode,
             "latitude" => $latitude,
             "longitude" => $longitude,
             "longitude" => $longitude,

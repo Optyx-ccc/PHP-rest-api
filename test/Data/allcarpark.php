@@ -39,11 +39,12 @@ if($num>0){
         $carpark_item=array(
 			"name" => $name,
             "region" => $region,
-            "address" => $address,
             "latitude" => $latitude,
             "longitude" => $longitude, 
-            "ratetype" => $ratetype ,
-            "rate" => $rate 
+            "weekday_rate1" => $weekday_rate1,
+            "weekday_rate1" => $weekday_rate2, 
+            "saturday_rate" => $saturday_rate,
+            "sun_pub_rate" => $sun_pub_rate 
         );
  
         array_push($carpark_arr["carpark"], $carpark_item);
