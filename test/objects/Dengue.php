@@ -35,7 +35,7 @@ class Dengue{
 	//Done
 	//calculate the area
 	//return all cafe data in area
-    $rad = 0.5; // radius of bounding circle in kilometers
+
     $R = 6371;  // earth's mean radius, km
 	
     // first-cut bounding box (in degrees)

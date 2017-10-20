@@ -6,9 +6,9 @@ class House{
     private $table_name = "House";
  
     // object properties
-	public $name;
+	public $title;
     public $region;
-    public $address;
+    public $description;
 	public $latitude;
 	public $longitude;
     public $type;

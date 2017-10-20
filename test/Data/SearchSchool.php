@@ -35,14 +35,14 @@ if($num>0){
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         // extract row
-        // this will make $row['name'] to
-        // just $name only
+        // this will make $row['title'] to
+        // just $title only
         extract($row);
  
         $school_item=array(
-            "name" => $name,
+            "title" => $title,
             "region" => $region,
-            "address" => $address,
+            "description" => $description,
             "postalcode" => $postalcode,
             "latitude" => $latitude,
             "longitude" => $longitude,

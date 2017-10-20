@@ -6,9 +6,9 @@ class Cafe{
     private $table_name = "Cafe";
  
     // object properties
-	public $name;
+	public $title;
     public $region;
-	public $address;
+	public $description;
 	public $latitude;
 	public $longitude;
 	public $type;
@@ -38,7 +38,6 @@ class Cafe{
 	//Done
 	//calculate the area
 	//return all cafe data in area
-    $rad = 0.5; // radius of bounding circle in kilometers
     $R = 6371;  // earth's mean radius, km
 	
     // first-cut bounding box (in degrees)

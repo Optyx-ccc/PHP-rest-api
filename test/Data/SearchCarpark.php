@@ -41,8 +41,8 @@ if($num>0){
         extract($row);
  
         $carpark_item=array(
-			"name" => $name,
-            "region" => $region,
+			"title" => $title,
+            "description" => $description,
             "latitude" => $latitude,
             "longitude" => $longitude, 
             "weekday_rate1" => $weekday_rate1,

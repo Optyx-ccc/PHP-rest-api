@@ -6,8 +6,8 @@ class Carpark{
     private $table_name = "Carpark";
  
     // object properties
-	public $name;
-    public $region;
+	public $title;
+    public $description;
 	public $latitude;
 	public $longitude;
     public $weekday_rate1;
@@ -39,8 +39,7 @@ class Carpark{
 	//Done
 	//calculate the area
 	//return all cafe data in area
-    $rad = 0.5; // radius of bounding circle in kilometers
-    $R = 6371;  // earth's mean radius, km
+        $R = 6371;  // earth's mean radius, km
 	
     // first-cut bounding box (in degrees)
     $maxLat = $lat + rad2deg($rad/$R);
