@@ -20,7 +20,7 @@ $long = isset($_GET["long"]) ? $_GET["long"] : "";
 $rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
  
 // query schools
-$stmt = $schools->search($lat, $long, $rad);
+$stmt = $school->search($lat, $long, $rad);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
@@ -28,7 +28,7 @@ if($num>0){
  
     // schools array
     $schools_arr=array();
-    $schools_arr["records"]=array();
+    $schools_arr["School"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -52,10 +52,10 @@ if($num>0){
             "type" => $type
         );
  
-        array_push($schools_arr["School"], $school_item);
+        array_push($school_arr["School"], $school_item);
     }
  
-    echo json_encode($schools_arr);
+    echo json_encode($school_arr);
 }
  
 else{

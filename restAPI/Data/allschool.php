@@ -44,7 +44,7 @@ if($num>0){
             "latitude" => $latitude,
             "longitude" => $longitude,
             "longitude" => $longitude,
-            "url_description" => $url_description,
+            "url_address" => $url_address,
             "telephone" => $telephone,
             "type" => $type
         );

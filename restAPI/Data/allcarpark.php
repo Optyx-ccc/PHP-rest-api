@@ -5,50 +5,48 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/Cafe.php';
+include_once '../objects/Carpark.php';
  
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$Cafe = new Cafe($db);
+$carpark = new Carpark($db);
  
 // get keywords
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
  
 // query products
-$stmt = $Cafe->read();
+$stmt = $carpark->read();
 $num = $stmt->rowCount();
+ 
 // check if more than 0 record found
 if($num>0){
  
     // products array
-    $cafe_arr=array();
-    $cafe_arr["cafe"]=array();
+    $carpark_arr=array();
+    $carpark_arr["carpark"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         // extract row
-        // this will make $row['name'] to
-        // just $name only
+        // this will make $row['title'] to
+        // just $title only
         extract($row);
  
-        $cafe_item=array(
-            "name" => $name,
-            "address" => $address,
+        $carpark_item=array(
+			"title" => $title,
             "latitude" => $latitude,
             "longitude" => $longitude,
-            "type" => $type,
-            "price" => $price
+            "description" => $description
 			);
  
-        array_push($cafe_arr["cafe"], $cafe_item);
+        array_push($carpark_arr["carpark"], $carpark_item);
     }
-	
-    echo json_encode($cafe_arr);
+ 
+    echo json_encode($carpark_arr);
 }
  
 else{

@@ -10,10 +10,7 @@ class Carpark{
     public $description;
 	public $latitude;
 	public $longitude;
-    public $weekday_rate1;
-    public $weekday_rate2;
-    public $saturday_rate;
-    public $sun_pub_rate;
+
  
     // constructor with $db as database connection
     public function __construct($db){

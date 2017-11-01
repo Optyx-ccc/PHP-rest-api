@@ -5,31 +5,27 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/Carpark.php';
+include_once '../objects/Cafe.php';
  
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$carpark = new Carpark($db);
+$Cafe = new Cafe($db);
  
 // get keywords
-
-$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
-$long = isset($_GET["long"]) ? $_GET["long"] : "";
-$rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
-
-// query products
-$stmt = $carpark->search($lat, $long,$rad);
-$num = $stmt->rowCount();
+$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
  
+// query products
+$stmt = $Cafe->read();
+$num = $stmt->rowCount();
 // check if more than 0 record found
 if($num>0){
  
     // products array
-    $carpark_arr=array();
-    $carpark_arr["carpark"]=array();
+    $cafe_arr=array();
+    $cafe_arr["cafe"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -40,21 +36,19 @@ if($num>0){
         // just $name only
         extract($row);
  
-        $carpark_item=array(
-			"title" => $title,
+        $cafe_item=array(
+            "title" => $title,
             "description" => $description,
             "latitude" => $latitude,
-            "longitude" => $longitude, 
-            "weekday_rate1" => $weekday_rate1,
-            "weekday_rate1" => $weekday_rate2, 
-            "saturday_rate" => $saturday_rate,
-            "sun_pub_rate" => $sun_pub_rate 
-        );
+            "longitude" => $longitude,
+            "type" => $type,
+            "price" => $price
+			);
  
-        array_push($carpark_arr["carpark"], $carpark_item);
+        array_push($cafe_arr["cafe"], $cafe_item);
     }
- 
-    echo json_encode($carpark_arr);
+	
+    echo json_encode($cafe_arr);
 }
  
 else{

@@ -15,9 +15,13 @@ $db = $database->getConnection();
 $carpark = new Carpark($db);
  
 // get keywords
- 
+
+$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
+$long = isset($_GET["long"]) ? $_GET["long"] : "";
+$rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
+
 // query products
-$stmt = $carpark->read();
+$stmt = $carpark->search($lat, $long,$rad);
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
@@ -32,19 +36,16 @@ if($num>0){
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         // extract row
-        // this will make $row['title'] to
-        // just $title only
+        // this will make $row['name'] to
+        // just $name only
         extract($row);
  
         $carpark_item=array(
 			"title" => $title,
-            "description" => $description,
             "latitude" => $latitude,
-            "longitude" => $longitude, 
-            "weekday_rate1" => $weekday_rate1,
-            "weekday_rate1" => $weekday_rate2, 
-            "saturday_rate" => $saturday_rate,
-            "sun_pub_rate" => $sun_pub_rate 
+            "longitude" => $longitude
+            "description" => $description,
+
         );
  
         array_push($carpark_arr["carpark"], $carpark_item);
