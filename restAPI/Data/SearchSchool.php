@@ -27,8 +27,8 @@ $num = $stmt->rowCount();
 if($num>0){
  
     // schools array
-    $schools_arr=array();
-    $schools_arr["School"]=array();
+    $school_arr=array();
+    $school_arr["School"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()

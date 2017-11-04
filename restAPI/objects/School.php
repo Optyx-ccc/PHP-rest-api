@@ -50,7 +50,7 @@ class School{
     $minLat = $lat - rad2deg($rad/$R);
     $maxLon = $lon + rad2deg(asin($rad/$R) / cos(deg2rad($lat)));
     $minLon = $lon - rad2deg(asin($rad/$R) / cos(deg2rad($lat)));
-	
+	echo "Maximum Latitude : " . $maxLat . "\nMinimum Latitude : " . $minLat . "\nMaximum longitude : " . $maxLon . "\nMinimum Longitude: " . $minLon;
 	
 	if(($maxLat > $minLat) && ($maxLon > $minLon)){
 			$query = "SELECT * FROM "   . $this->table_name . 

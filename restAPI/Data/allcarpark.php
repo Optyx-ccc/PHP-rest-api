@@ -40,7 +40,7 @@ if($num>0){
 			"title" => $title,
             "latitude" => $latitude,
             "longitude" => $longitude,
-            "description" => $description
+            "Description" => $Description
 			);
  
         array_push($carpark_arr["carpark"], $carpark_item);

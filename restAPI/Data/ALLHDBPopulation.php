@@ -5,31 +5,28 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/Carpark.php';
+include_once '../objects/HDBPopulation.php';
  
-// instantiate database and product object
+// instantiate database and HDBPopulation object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$carpark = new Carpark($db);
+$HDBPopulation = new HDBPopulation($db);
  
 // get keywords
 
-$lat = isset($_GET["lat"]) ? $_GET["lat"] : "";
-$long = isset($_GET["long"]) ? $_GET["long"] : "";
-$rad = isset($_GET["rad"]) ? $_GET["rad"] : "";
-
-// query products
-$stmt = $carpark->search($lat, $long,$rad);
+ 
+// query HDBPopulations
+$stmt = $HDBPopulation->displayHDB();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
 if($num>0){
  
-    // products array
-    $carpark_arr=array();
-    $carpark_arr["carpark"]=array();
+    // HDBPopulations array
+    $HDB_arr=array();
+    $HDB_arr["HDBPopulation"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -40,23 +37,24 @@ if($num>0){
         // just $name only
         extract($row);
  
-        $carpark_item=array(
-			"title" => $title,
-            "latitude" => $latitude,
-            "longitude" => $longitude,
-            "description" => $description
-
+        $HDB_item=array(
+            "region" => $region,
+            "total" => $total,
+            "studio" => $studio,
+            "threeroom" => $threeroom,
+            "fourroom" => $fourroom,
+            "fiveroom" => $fiveroom
         );
  
-        array_push($carpark_arr["carpark"], $carpark_item);
+        array_push($HDB_arr["HDBPopulation"], $HDB_item);
     }
  
-    echo json_encode($carpark_arr);
+    echo json_encode($HDB_arr);
 }
  
 else{
     echo json_encode(
-        array("message" => "No products found.")
+        array("message" => "No HDBPopulations found.")
     );
 }
 ?>
