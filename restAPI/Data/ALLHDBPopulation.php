@@ -18,7 +18,7 @@ $HDBPopulation = new HDBPopulation($db);
 
  
 // query HDBPopulations
-$stmt = $HDBPopulation->displayHDB();
+$stmt = $HDBPopulation->displayALL();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

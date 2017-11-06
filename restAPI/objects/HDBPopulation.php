@@ -22,7 +22,7 @@ class HDBPopulation{
 	function displayALL(){
  
     // select all query
-    $query = "SELECT * FROM " . $this->table_name . ;
+    $query = "SELECT * FROM " . $this->table_name  ;
 
     // prepare query statement
     $stmt = $this->conn->prepare($query);
@@ -34,10 +34,10 @@ class HDBPopulation{
 
 	}	
 	
-	function displayHDB($region, $year){
+	function displayHDB($region){
  
     // select all query
-    $query = "SELECT * FROM " . $this->table_name . " where region=upper('" . $region . "') AND year =" . $year ;
+    $query = "SELECT * FROM " . $this->table_name . " where region=upper('" . $region . "');
 
     // prepare query statement
     $stmt = $this->conn->prepare($query);
